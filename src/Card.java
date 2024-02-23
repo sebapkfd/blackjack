@@ -4,9 +4,8 @@ public class Card {
     public String suit;
 
     Card(int value, String suit) {
-        this.value = value;
         this.suit = suit;
-        switch (this.value) {
+        switch (value) {
             case 1:
                 this.label = "A";
                 break;
@@ -20,13 +19,14 @@ public class Card {
                 this.label = "K";
                 break;
             default:
-                this.label = String.valueOf(this.value);
+                this.label = String.valueOf(value);
                 break;
         }
+        this.value = value >= 10 ? 10 : value;
     }
 
     public void showCard() {
-        System.out.println(this.label + " " + this.suit);
+        System.out.println(this.label + " " + this.suit + " value: " + this.value);
     }
 
 }
